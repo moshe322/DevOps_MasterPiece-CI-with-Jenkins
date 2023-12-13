@@ -6,6 +6,7 @@ WORKDIR /app
 COPY ./ /app
 RUN mvn clean install
 CMD ["mvn", "clean", "install"]
+EXPOSE 8080
 
 
 
