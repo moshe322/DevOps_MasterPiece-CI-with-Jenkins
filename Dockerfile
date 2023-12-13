@@ -1,10 +1,11 @@
 FROM openjdk:17-alpine
+RUN apk update && \
+    apk add maven && \
+    rm -rf /var/cache/apk/*
 WORKDIR /app
-RUN apt-get update && \
-    apt-get install -y maven && \
-    rm -rf /var/lib/apt/lists/*
 COPY ./ /app
 RUN mvn clean install
-CMD ["mvn", "clean", "install]
+CMD ["mvn", "clean", "install"]
+
 
 
